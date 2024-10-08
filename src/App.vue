@@ -1,85 +1,30 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+// import HomepageView from '@/views/HomepageView.vue'
+// import FavoritePlaces from './components/FavoritePlaces/FavoritePlaces.vue'
+import { ref } from 'vue'
+import LoginForm from './components/Auth/LoginForm/LoginForm.vue'
+import RegistrationForm from './components/Auth/RegistrationForm/RegistrationForm.vue'
+// import IModal from './components/IModal/IModal.vue'
+import CreateNewPlaceModal from './components/CreateNewPlaceModal/CreateNewPlaceModal.vue'
+
+const isOpen = ref(false)
+const closeModal = () => {
+  isOpen.value = false
+}
+const openModal = () => {
+  isOpen.value = true
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <!-- <HomepageView />
+  <div class="bg-white h-screen w-[400px]">
+    <FavoritePlaces />
+  </div> -->
+  <div class="bg-black h-auto p-5">
+    <button @click="openModal">Click me</button>
+    <RegistrationForm @submit="console.log" />
+    <LoginForm @submit="console.log" />
+    <CreateNewPlaceModal :is-open="isOpen" @close="closeModal" @submit="console.log" />
+  </div>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
