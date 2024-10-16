@@ -17,11 +17,11 @@ const userData = reactive({
     <IInput
       class="mb-4"
       label="Електронна пошта"
-      placeholder="email@gmail.com"
+      placeholder="email@email.com"
       v-model="userData.email"
     />
     <IInput
-      class="mb-28"
+      class="mb-4"
       label="Пароль"
       placeholder="*************"
       type="password"

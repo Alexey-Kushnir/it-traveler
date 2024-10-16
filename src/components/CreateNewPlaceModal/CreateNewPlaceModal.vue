@@ -14,6 +14,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['close', 'submit'])
+
 const formData = reactive({
   title: '',
   description: '',
@@ -31,9 +32,9 @@ const uploadText = computed(() => {
 <template>
   <IModal v-if="props.isOpen" @close="emit('close')">
     <form @submit.prevent="emit('submit', formData)">
-      <div class="flex gap-1 justify-center font-bold text-center mb-10">
+      <h4 class="flex gap-1 justify-center font-bold text-center mb-10">
         <MarkerIcon /> Додати маркер
-      </div>
+      </h4>
       <IInput label="Локація" class="mb-4" v-model:="formData.title" />
       <IInput label="Опис" type="textarea" class="mb-2" v-model:="formData.description" />
       <div class="flex gap-2 items-center mb-10">
