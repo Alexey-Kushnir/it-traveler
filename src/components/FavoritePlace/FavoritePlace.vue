@@ -41,6 +41,9 @@ const props = defineProps({
         </p>
       </div>
     </div>
-    <div class="h-[3px] w-full  mt-4" :class="{ 'bg-primary': props.isActive, 'bg-[#ececec]': !props.isActive }"></div>
+    <div
+      class="h-[3px] w-full mt-4"
+      :class="{ 'bg-primary': props.isActive, 'bg-[#ececec]': !props.isActive }"
+    ></div>
   </section>
 </template>
