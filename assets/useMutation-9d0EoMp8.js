@@ -1,0 +1,1 @@
+import{g as i}from"./index-DQeH2y-C.js";const y=({mutationFn:n,onSuccess:t,onError:l})=>{const e=i(),u=i(!1),a=i(null);return{data:e,isLoading:u,error:a,mutation:async(...f)=>{u.value=!0;try{e.value=await n(...f),a.value=null,t==null||t(e)}catch(v){a.value=v,l==null||l(a)}finally{u.value=!1}}}};export{y as u};
