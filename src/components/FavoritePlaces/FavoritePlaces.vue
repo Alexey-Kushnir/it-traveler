@@ -13,7 +13,7 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['place-clicked'])
+const emit = defineEmits(['place-clicked', 'create'])
 </script>
 
 <template>
@@ -21,6 +21,7 @@ const emit = defineEmits(['place-clicked'])
     <div class="text-gray mb-4">Додані маркери</div>
     <slot name="label"></slot>
     <slot name="list">
+      <div v-if="items.length === 0" class="text-black">Список порожній</div>
       <FavoritePlace
         v-for="place in props.items"
         :key="place.id"
@@ -32,6 +33,6 @@ const emit = defineEmits(['place-clicked'])
       />
     </slot>
     <slot></slot>
-    <IButton class="w-full mt-10" variant="gradient">Додати маркер</IButton>
+    <IButton class="w-full mt-10" variant="gradient" @click="emit('create')">Додати маркер</IButton>
   </div>
 </template>
